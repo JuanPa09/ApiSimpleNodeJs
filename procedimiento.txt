@@ -1,0 +1,45 @@
+
+######## Iniciar Proyecto NodeJs ########
+
+npm init
+
+nombre : taller
+version del proyecto: 
+description: taller de nodejs
+entry point (Primer archivo que se va a ejecutar) : index.js
+test command (para ejecutar acciones de prueba)
+git respository (dejarlo asi por el momento)
+keywords (palabras clave) : (dejarlo en blanco)
+author: JuanPa09 (Usuario de github)
+
+##### Crear Archivo #### 
+index.js
+
+##### Hacer un hola mundo ####
+console.log("Hola Mundo")
+
+##### Correr node ######
+node index.js
+
+#### Comezar a hacer la api #####
+
+npm i express 
+(Express es un framework mientras que http es solo un módulo
+Traer lo mismo que http y unas funciones más que ayudan a que el desarrollo sea mucho más
+fácil)
+
+npm i body-parser 
+(Sirve para acceder al cuerpo de la petición)
+
+npm install --save-dev nodemon
+(nos sirve para reiniciar el servidor sin tener que apagarlo
+, usamos -d para que sea solo una herramienta de desarrollo)
+
+
+
+
+
+
+
+
+
