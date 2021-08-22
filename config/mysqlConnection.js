@@ -1,4 +1,4 @@
-var mysql = require('mysql2');
+/*var mysql = require('mysql2');
 
 var con = mysql.createConnection({
     host     : "localhost",
@@ -13,4 +13,4 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-module.exports = con;
+module.exports = con;*/
