@@ -1,4 +1,6 @@
 var express = require('express');
+var mysql = require('mysql');
+
 port = 3000;
 
 var app = express();
@@ -7,6 +9,8 @@ app.use(express.json()); //Para parsear las peticiones entrantes
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
 
+
+/* ############## Ejemplos ################# */
 
 app.get('/',(req,res)=>{
     res.send(`Se accedio correctamente al puerto ${port}`);
@@ -41,6 +45,19 @@ app.post('/datos',(req,res)=>{
     console.log(req.body)
     res.send('Enviados')
 })
+
+/* #################### API ################################### */
+
+
+const usuarioRouter = require('./routes/usuario.route')
+app.use("/usuario",usuarioRouter)
+
+const reservaRouter = require('./routes/reserva.route')
+app.use('/reserva',reservaRouter)
+
+
+
+
 
 app.listen(port,function(){
     console.log("Corriendo en el puerto " + port)
