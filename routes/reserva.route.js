@@ -4,5 +4,6 @@ const reservaController = require('../controllers/reserva.controller')
 
 router.post('/nuevaReserva',reservaController.reservar)
 router.get('/getReservas',reservaController.obtenerReservas)
+router.get('/getDetalle',reservaController.obtenerDetalleReservas)
 
 module.exports = router

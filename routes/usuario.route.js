@@ -6,15 +6,16 @@ const usuarioController = require('../controllers/usuario.controller')
 
 router.get('/',usuarioController.raiz)
 router.get('/getSaludo',usuarioController.saludar)
+
 /* ############# */
+router.get('/getUsuarios',usuarioController.getUsuarios)
 router.post('/registro',usuarioController.registrarUsuario)
 router.post('/login',usuarioController.login)
-router.put('/actualizar',usuarioController.actualizarUsuario)
-router.get('/eliminar',usuarioController.eliminarUsuario)
+router.put('/actualizar/:id',usuarioController.actualizarUsuario)
+router.delete('/eliminar/:id',usuarioController.eliminarUsuario)
 
 
 /* Prueba */
 //router.get('/prueba',usuarioController.prueba)
-router.get('/getUsuarios',usuarioController.getUsuarios)
 /* *************************** */
 module.exports = router

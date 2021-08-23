@@ -6,14 +6,14 @@ port = 3000;
 var app = express();
 
 app.use(express.json()); //Para parsear las peticiones entrantes
-app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'))
+app.use(express.urlencoded({extended: true})); //Para que permita anidar informacion en las rutas
+app.use(express.static('public')) //Para permitir devolver imagenes 
 
 
 /* ############## Ejemplos ################# */
 
 app.get('/',(req,res)=>{
-    res.send(`Se accedio correctamente al puerto ${port}`);
+    res.status(200).send(`Se accedio correctamente al puerto ${port}`);
 })
 
 app.get('/hola',(req,res)=>{
