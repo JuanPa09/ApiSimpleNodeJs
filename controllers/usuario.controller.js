@@ -61,7 +61,8 @@ exports.login = async(req,res) => {
 }
 
 exports.actualizarUsuario = async(req,res) => {
-    const {
+    
+    /*const {
         id_usuario,
         correo,
         usuario,
@@ -76,7 +77,7 @@ exports.actualizarUsuario = async(req,res) => {
                 }else{
                     res.json({exito: 0, error: err})
                 }
-            })
+            })*/
 }
 
 exports.eliminarUsuario = async(req,res) => {
