@@ -47,7 +47,7 @@ exports.login = async(req,res) => {
         password
     } = req.body
 
-    sql.query(`Select id_usuario from Usuario where usuario = '${usuario}' and password = '${password}'`,function(err,result){
+    sql.query(`Select id_usuario, usuario from Usuario where usuario = '${usuario}' and password = '${password}'`,function(err,result){
         if(!err){
             if(result.length != 0){
                 res.status(200).json({id: result[0].id_usuario})
