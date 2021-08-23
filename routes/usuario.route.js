@@ -9,9 +9,12 @@ router.get('/getSaludo',usuarioController.saludar)
 /* ############# */
 router.post('/registro',usuarioController.registrarUsuario)
 router.post('/login',usuarioController.login)
-router.post('/actualizar',usuarioController.actualizarUsuario)
+router.put('/actualizar',usuarioController.actualizarUsuario)
 router.get('/eliminar',usuarioController.eliminarUsuario)
 
-router.get('/prueba',usuarioController.prueba)
 
+/* Prueba */
+//router.get('/prueba',usuarioController.prueba)
+router.get('/getUsuarios',usuarioController.getUsuarios)
+/* *************************** */
 module.exports = router
