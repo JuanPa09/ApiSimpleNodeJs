@@ -35,8 +35,6 @@ app.get("/json",(req,res)=>{
     res.send(retorno)
 })
 
-
-
 app.get('/datos',(req,res)=>{
     console.log(req.body)
     res.send('Enviados')
@@ -49,16 +47,11 @@ app.post('/datos',(req,res)=>{
 
 /* #################### API ################################### */
 
-
 const usuarioRouter = require('./routes/usuario.route')
 app.use("/usuario",usuarioRouter)
 
 const reservaRouter = require('./routes/reserva.route')
 app.use('/reserva',reservaRouter)
-
-
-
-
 
 app.listen(port,function(){
     console.log("Corriendo en el puerto " + port)
