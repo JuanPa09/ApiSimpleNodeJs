@@ -52,10 +52,13 @@ exports.reservar = async(req,res)=>{
 }
 
 exports.obtenerReserva = async(req,res) =>{
-    const id = req.params.id
-    sql.query(`Select * from Reserva where id_usuario = ${id};`,(err,result)=>{
+    const id = req.query.id
+    console.log(id)
+    sql.query(`Select r.fecha, r.hora from Detalle_Reserva dr, Reserva r 
+    where dr.id_usuario =${id}  and r.id_reserva = dr.id_reserva ;;`,(err,result)=>{
 
         if(err){
+            console.log(err)
             return res.status(400).json({error:err})
         }else{
             return res.status(200).send(result)

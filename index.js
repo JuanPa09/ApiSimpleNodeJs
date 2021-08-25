@@ -1,11 +1,12 @@
 var express = require('express');
-var mysql = require('mysql');
+//var mysql = require('mysql');
 const cors = require('cors')
 
 port = 3000;
 
 var app = express();
 
+//middlewares
 app.use(express.json()); //Para parsear las peticiones entrantes
 app.use(express.urlencoded({extended: true})); //Para que permita anidar informacion en las rutas
 app.use(express.static('public')) //Para permitir devolver imagenes 
@@ -43,6 +44,18 @@ app.get('/datos',(req,res)=>{
 app.post('/datos',(req,res)=>{
     console.log(req.body)
     res.send('Enviados')
+})
+
+app.put('/actualizacion/:id/:nombre',(req,res)=>{
+    console.log(req.params.id)
+    console.log(req.params.nombre)
+    res.send('datos')
+})
+
+app.put('/actualizacion',(req,res)=>{
+    console.log(req.query.id)
+    console.log(req.query.nombre)
+    res.send('datos')
 })
 
 /* #################### API ################################### */
