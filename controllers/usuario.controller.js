@@ -86,19 +86,27 @@ exports.actualizarUsuario = async(req,res) => {
 /* DELETE */
 exports.eliminarUsuario = async(req,res) => {
     const id = req.params.id
-    sql.query(`Delete from Usuario where id_usuario = ${id};`,(err,result)=>{
+
+    sql.query(`Delete from Detalle_Reserva where id_usuario = ${id}`,(err,result)=>{
         if(!err){
-            if(result.affectedRows == 0){
-                return res.status(400).json({error:"Usuario no encontrado"})
-            }else{
-                return res.status(200).send(result);
-            }
-            //res.json({status: 1})
+            sql.query(`Delete from Usuario where id_usuario = ${id};`,(err,result)=>{
+                if(!err){
+                    if(result.affectedRows == 0){
+                        return res.json({error:"Usuario no encontrado"})
+                    }else{
+                        return res.send(result);
+                    }
+                }else{
+                    return res.json({error:err});
+                }
+            })
         }else{
-            return res.status(400).json({error:err});
-            //res.json({status: 0})
+            return res.json({error:err})
         }
     })
+
+
+    
     
 }
 
