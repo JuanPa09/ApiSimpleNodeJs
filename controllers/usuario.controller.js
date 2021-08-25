@@ -50,7 +50,7 @@ exports.login = async(req,res) => {
     sql.query(`Select * from Usuario where usuario = '${usuario}' and password = '${password}'`,function(err,result){
         if(!err){
             if(result.length != 0){
-                res.send(result)
+                res.json({id: result[0].id_usuario, usuario: result[0].usuario,correo: result[0].correo, password: result[0].password})
             }else{
                 res.json({error: "Credenciales incorrectas"})
             }
