@@ -14,9 +14,9 @@ exports.saludar = async(req,res) => {
 exports.getUsuarios = async(req,res) =>{
     sql.query("Select * from Usuario",(err,result)=>{
         if(!err){
-            res.status(200).send(result);
+            res.send(result);
         }else{
-            res.status(400).json({error: err})
+            res.json({error: err})
         }
     })
 }
@@ -47,15 +47,15 @@ exports.login = async(req,res) => {
         password
     } = req.body
 
-    sql.query(`Select id_usuario, usuario from Usuario where usuario = '${usuario}' and password = '${password}'`,function(err,result){
+    sql.query(`Select * from Usuario where usuario = '${usuario}' and password = '${password}'`,function(err,result){
         if(!err){
             if(result.length != 0){
-                res.status(200).json({id: result[0].id_usuario, usuario: result[0].usuario})
+                res.json({id: result[0].id_usuario, usuario: result[0].usuario})
             }else{
-                res.status(400).json({error: "Credenciales incorrectas"})
+                res.json({error: "Credenciales incorrectas"})
             }
         }else{
-            res.status(400).json({error: err})
+            res.json({error: err})
         }
     })
 }
