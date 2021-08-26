@@ -11,8 +11,6 @@ app.use(express.json()); //Para parsear las peticiones entrantes
 app.use(express.urlencoded({extended: true})); //Para que permita anidar informacion en las rutas
 app.use(express.static('public')) //Para permitir devolver imagenes 
 app.use(cors())
-res. header("Access-Control-Allow-Origin", "*");
-
 
 /* ############## Ejemplos ################# */
 
