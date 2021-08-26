@@ -1,13 +1,13 @@
 var express = require('express');
 //var mysql = require('mysql');
 const cors = require('cors')
-var fs = require('fs')
+//var fs = require('fs')
 
 /* Probando hacer HTTPS */
-var https = require('https')
+/*var https = require('https')
 var privateKey = fs.readFileSync('./key.pem','utf8');
 var certificate = fs.readFileSync('./cert.pem')
-var credentials = {key:privateKey, cert: certificate};
+var credentials = {key:privateKey, cert: certificate};*/
 /* */
 
 port = 3000;
@@ -74,11 +74,11 @@ app.use("/usuario",usuarioRouter)
 const reservaRouter = require('./routes/reserva.route')
 app.use('/reserva',reservaRouter)
 
-/*app.listen(port,function(){
+app.listen(port,function(){
     console.log("Corriendo en el puerto " + port)
-})*/
+})
 
 
 /* Probando HTTPS */
-var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port);
+/*var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(port);*/
